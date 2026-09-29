@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>AI翻訳</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div id="status" role="status" aria-live="polite">
+  <div id="statusText">準備しています…</div>
+  <div id="progress"><div id="progressBar"></div></div>
+</div>
+<div id="error" hidden>
+  <h1 id="errTitle"></h1>
+  <p id="errMsg"></p>
+  <p id="errHint"></p>
+  <button id="errOpen" type="button">元のページを開く</button>
+</div>
+<iframe id="page" sandbox="allow-same-origin allow-popups" scrolling="no" title="翻訳されたページ"></iframe>
+<div id="bar" hidden>
+  <div class="seg" role="group" aria-label="表示言語">
+    <button id="btnJa" type="button" aria-pressed="true">日本語</button>
+    <button id="btnOrig" type="button" aria-pressed="false">原文</button>
+  </div>
+  <button id="btnRetry" type="button" hidden>失敗分を再試行</button>
+  <button id="btnOpen" type="button">元のページ</button>
+</div>
+<script src="/assets/app.js"></script>
+</body>
+</html>
