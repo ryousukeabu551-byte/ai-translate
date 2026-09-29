@@ -1,0 +1,22 @@
+{
+  "name": "ai-page-translator",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20.6" },
+  "scripts": {
+    "setup": "node setup.mjs",
+    "start": "node server.js",
+    "start:local": "node --env-file=.env server.js",
+    "doctor": "node --env-file=.env doctor.mjs",
+    "doctor:remote": "node doctor.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "ipaddr.js": "^2.2.0",
+    "robots-parser": "^3.0.1",
+    "undici": "^7.0.0"
+  }
+}
