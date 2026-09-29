@@ -1,0 +1,23 @@
+:root { --bg:#fff; --fg:#1c1c1e; --muted:#6b7280; --accent:#0a84ff; --bar:rgba(248,248,250,.94); --line:#d1d5db; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111; --fg:#f2f2f7; --muted:#9ca3af; --bar:rgba(28,28,30,.94); --line:#3a3a3c; } }
+* { box-sizing: border-box; }
+html, body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; }
+body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+#status { position:sticky; top:0; z-index:10; padding:calc(8px + env(safe-area-inset-top, 0px)) 14px 8px; background:var(--bar); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); font-size:14px; }
+#status[hidden] { display:none; }
+#status.done #progress { display:none; }
+#progress { height:4px; margin-top:6px; background:var(--line); border-radius:2px; overflow:hidden; }
+#progressBar { height:100%; width:0; background:var(--accent); transition:width .25s; }
+#page { display:block; width:100%; height:0; border:0; background:#fff; }
+#error { padding:24px 18px; max-width:640px; margin:0 auto; }
+#error h1 { font-size:20px; margin:0 0 8px; }
+#error p { margin:0 0 12px; }
+#errHint { color:var(--muted); font-size:14px; }
+button { font:inherit; color:var(--fg); background:transparent; border:1px solid var(--line); border-radius:10px; padding:10px 14px; min-height:44px; }
+#bar { position:fixed; left:0; right:0; bottom:0; z-index:10; display:flex; gap:8px; align-items:center; justify-content:space-between; padding:8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background:var(--bar); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-top:1px solid var(--line); }
+#bar[hidden], #error[hidden], #btnRetry[hidden] { display:none; }
+.seg { display:flex; }
+.seg button { border-radius:0; }
+.seg button:first-child { border-radius:10px 0 0 10px; }
+.seg button:last-child { border-radius:0 10px 10px 0; border-left:0; }
+.seg button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
