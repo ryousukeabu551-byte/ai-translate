@@ -44,7 +44,7 @@ class ApiError extends Error {
 
 /* ---------- 認証（トークン → HttpOnly Cookie） ---------- */
 const sha = (s) => crypto.createHash('sha256').update(String(s)).digest();
-const tokenOk = (t) => !!t && crypto.timingSafeEqual(sha(t), sha(ACCESS_TOKEN));
+const tokenOk = (t) => !!t && crypto.timingSafeEqual(sha(String(t).trim()), sha(ACCESS_TOKEN.trim()));
 function cookieOf(req, name) {
   for (const p of (req.headers.cookie || '').split(';')) {
     const i = p.indexOf('=');
